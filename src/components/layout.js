@@ -1,14 +1,8 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
+import React, { useEffect, useRef, useState } from "react"
+import banner from "../images/banner.png"
+import Footer from "./Footer"
 import Header from "./header"
 import "./layout.css"
 
@@ -22,25 +16,42 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  const navBar = useRef(null)
+  const [isSticky, setSticky] = useState(false)
+  const handleScroll = () => {
+    if (navBar.current) {
+      setSticky(navBar.current.getBoundingClientRect().top <= 0)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", () => handleScroll)
+    }
+  }, [])
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+    <div className="full-page">
+      <div className="frow">
+        <Link
+          to="/"
+          title={`Quay về trang chủ - ${data.site.siteMetadata.title}`}
+        >
+          <img
+            src={banner}
+            alt={`banner ${data.site.siteMetadata.title}`}
+            title={`Quay về trang chủ - ${data.site.siteMetadata.title}`}
+            style={{ padding: `0 8px`, margin: `calc(1.45rem / 2) 0` }}
+          ></img>
+        </Link>
       </div>
-    </>
+      <div className={`${isSticky ? " sticky" : ""}`} ref={navBar}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+      </div>
+      <div className="main-contain">
+        <main>{children}</main>
+      </div>
+      <Footer></Footer>
+    </div>
   )
 }
 

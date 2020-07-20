@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import "frow/dist/frow.min.css"
+import React from "react"
+import "react-image-lightbox/style.css"
+import "slick-carousel/slick/slick-theme.css"
+import "slick-carousel/slick/slick.css"
+import { ThemeProvider } from "styled-components"
+import theme from "./src/themes/theme"
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => {
+  return <ThemeProvider theme={theme}>{element}</ThemeProvider>
+}
