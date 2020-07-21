@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import khongdau from "khong-dau"
+import { Link } from "gatsby"
 
 const CardItemWrapper = styled.div`
   transition: ${props => props.theme.transitions.slideUp};
@@ -25,16 +27,19 @@ function CardItem({ imgFluid, tieude, date, alt }) {
   if (imgFluid === undefined) {
     return null
   }
+  const slug = khongdau(tieude.trim(), ["chuyen", "url"])
   return (
-    <CardItemWrapper>
-      <Img alt={alt} fluid={imgFluid} className="card-image" />
-      <div style={{ textAlign: "center", margin: "0.5rem 0" }}>
-        <small>
-          <em>Ngày: {date}</em>
-        </small>
-        <div className="card-text">{tieude}</div>
-      </div>
-    </CardItemWrapper>
+    <Link to={`/su-kien/${slug}`}>
+      <CardItemWrapper>
+        <Img alt={alt} fluid={imgFluid} className="card-image" />
+        <div style={{ textAlign: "center", margin: "0.5rem 0" }}>
+          <small>
+            <em>Ngày: {date}</em>
+          </small>
+          <div className="card-text">{tieude}</div>
+        </div>
+      </CardItemWrapper>
+    </Link>
   )
 }
 

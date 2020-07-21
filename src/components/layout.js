@@ -5,7 +5,7 @@ import banner from "../images/banner.png"
 import Footer from "./Footer"
 import Header from "./header"
 import "./layout.css"
-
+import ChatBox from "./ChatBox"
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -47,9 +47,11 @@ const Layout = ({ children }) => {
       <div className={`${isSticky ? " sticky" : ""}`} ref={navBar}>
         <Header siteTitle={data.site.siteMetadata.title} />
       </div>
+
       <div className="main-contain">
         <main>{children}</main>
       </div>
+      <ChatBox></ChatBox>
       <Footer></Footer>
     </div>
   )

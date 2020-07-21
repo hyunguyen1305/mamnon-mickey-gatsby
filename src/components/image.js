@@ -11,7 +11,7 @@ const Image = props => (
             node {
               relativePath
               childImageSharp {
-                fluid(maxWidth: 1200) {
+                fluid {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -32,7 +32,7 @@ const Image = props => (
         <Img
           alt={props.alt}
           fluid={imageFluid}
-          objectFit="cover"
+          objectFit="contain"
           objectPosition="50% 50%"
         />
       )

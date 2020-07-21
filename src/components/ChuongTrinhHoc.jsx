@@ -1,15 +1,11 @@
 /* eslint-disable */
 import React, { useState } from "react"
-import styled from "styled-components"
-
 import Slider from "react-slick"
+import styled from "styled-components"
+import Image from "./image"
 
 const MamNonImage = () => {
-  const images = [
-    "https://image.freepik.com/free-photo/happy-asian-funny-cute-little-child-boy-from-kindergarten-student-uniform-with-school-bag-hugging-books-smile-green-school-blackboard_143683-213.jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSXbm6ftVeFwelJAWLASTk9Z8ethz2Qivx1SQ&usqp=CAU",
-    "https://image.freepik.com/free-photo/large-group-happy-asian-smiling-kindergarten-kids-friends-holding-hands-playing-jumping-together-during-sunny-day-casual-clothes-city-park_73503-1912.jpg",
-  ]
+  const images = [1, 2, 3]
   const settings = {
     infinite: true,
     speed: 1000,
@@ -25,19 +21,10 @@ const MamNonImage = () => {
   }
   return (
     <Slider {...settings}>
-      {images.map(item => {
+      {images.map((item, i) => {
         return (
           <div style={{ width: "100%", height: "100%" }} key={item}>
-            <img
-              src={item}
-              alt={item}
-              style={{
-                maxWidth: "100%",
-                height: "345px",
-                display: "block",
-                objectFit: "cover",
-              }}
-            ></img>
+            <Image filename={`mamnon${i + 1}.jpg`}></Image>
           </div>
         )
       })}
@@ -45,11 +32,7 @@ const MamNonImage = () => {
   )
 }
 const NhaTreImage = () => {
-  const images = [
-    "https://img.freepik.com/free-photo/little-asian-preschool-girl-making-english-word-by-her-alphabet-toy-white-background_34054-291.jpg?size=626&ext=jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRizBB9yJneN1INmXvznpVpthROd77iCRplWA&usqp=CAU",
-    "https://image.freepik.com/free-photo/asian-little-child-boy-kindergarten-wear-face-mask-protective-school-bag-pointing-side-away_143683-235.jpg",
-  ]
+  const images = [1, 2, 3]
   const settings = {
     infinite: true,
     speed: 1000,
@@ -65,19 +48,10 @@ const NhaTreImage = () => {
   }
   return (
     <Slider {...settings}>
-      {images.map(item => {
+      {images.map((item, i) => {
         return (
           <div key={item}>
-            <img
-              src={item}
-              alt={item}
-              style={{
-                maxWidth: "100%",
-                height: "345px",
-                display: "block",
-                objectFit: "cover",
-              }}
-            ></img>
+            <Image filename={`nhatre${i + 1}.jpg`}></Image>
           </div>
         )
       })}

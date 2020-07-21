@@ -3,14 +3,11 @@ import { MdLocationOn, MdCropLandscape, MdRoomService } from "react-icons/md"
 import { BsHouseDoor, BsFillCameraVideoFill } from "react-icons/bs"
 import { FaPlusCircle } from "react-icons/fa"
 import { RiServiceLine } from "react-icons/ri"
+import Image from "./image"
 import Slider from "react-slick"
 
 const CoSoImage = () => {
-  const images = [
-    "https://img.freepik.com/free-photo/little-asian-preschool-girl-making-english-word-by-her-alphabet-toy-white-background_34054-291.jpg?size=626&ext=jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRizBB9yJneN1INmXvznpVpthROd77iCRplWA&usqp=CAU",
-    "https://image.freepik.com/free-photo/asian-little-child-boy-kindergarten-wear-face-mask-protective-school-bag-pointing-side-away_143683-235.jpg",
-  ]
+  const images = [1, 2, 3, 4, 5, 6]
   const settings = {
     infinite: true,
     speed: 1000,
@@ -26,19 +23,10 @@ const CoSoImage = () => {
   }
   return (
     <Slider {...settings}>
-      {images.map(item => {
+      {images.map((item, i) => {
         return (
           <div key={item}>
-            <img
-              src={item}
-              alt={item}
-              style={{
-                maxWidth: "100%",
-                height: "345px",
-                display: "block",
-                objectFit: "cover",
-              }}
-            ></img>
+            <Image filename={`coso${i + 1}.jpg`}></Image>
           </div>
         )
       })}

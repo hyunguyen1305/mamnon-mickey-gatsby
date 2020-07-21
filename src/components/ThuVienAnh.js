@@ -1,7 +1,8 @@
-import React, { useState } from "react"
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
-import Lightbox from "react-image-lightbox"
+/* eslint-disable */
 import Img from "gatsby-image"
+import React, { useState } from "react"
+import Lightbox from "react-image-lightbox"
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 function ThuVienAnh({ data }) {
   let listFluid = []
@@ -24,7 +25,7 @@ function ThuVienAnh({ data }) {
                   setIndex(i)
                 }}
               >
-                <Img fluid={image} alt={image} />
+                <Img fluid={image} alt={`${image}`} />
               </div>
             )
           })}

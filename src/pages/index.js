@@ -12,7 +12,7 @@ import ThuVienAnh from "../components/ThuVienAnh"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulSukien(limit: 8) {
+      allContentfulSukien(limit: 8, sort: { fields: createdAt, order: DESC }) {
         edges {
           node {
             anhdaidien {
@@ -103,6 +103,26 @@ const IndexPage = () => {
         <section id="thu-vien-anh">
           <TitleText text="Thư Viện Ảnh"></TitleText>
           <ThuVienAnh data={listImage}></ThuVienAnh>
+          <div
+            style={{
+              textAlign: "center",
+              margin: "1rem 0 1.5rem 0",
+            }}
+          >
+            <Link
+              to="/thu-vien-anh"
+              style={{
+                textDecoration: "none",
+                border: "1px gray solid",
+                width: "auto",
+                padding: "0.5rem",
+                borderRadius: "8px",
+                color: "gray",
+              }}
+            >
+              Xem thêm ảnh
+            </Link>
+          </div>
         </section>
       </div>
     </Layout>

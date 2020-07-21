@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 const NavBarWrapper = styled.nav`
   z-index: 100;
+
   li,
   a {
     font-family: ${props => props.theme.fonts.fontNav};
@@ -62,7 +63,12 @@ const NavBarWrapper = styled.nav`
 `
 
 const Header = ({ siteTitle }) => (
-  <header style={{ backgroundColor: "rgba(255, 55, 55, 1)" }}>
+  <header
+    style={{
+      backgroundColor: "rgba(255, 55, 55, 1)",
+      boxShadow: "0px 4px 6px 0px rgba(0, 0, 0, 0.5)",
+    }}
+  >
     <NavBarWrapper className="frow-container">
       <ul className="navbar__link">
         <li title={`Trang chủ - ${siteTitle}`}>
@@ -76,7 +82,7 @@ const Header = ({ siteTitle }) => (
         </li>
         <li title={`Giới thiệu - ${siteTitle}`}>
           <Link
-            to="/page-2"
+            to="/gioi-thieu"
             className="navbar__link-item"
             activeClassName="navbar__link-item-active"
           >
@@ -85,7 +91,7 @@ const Header = ({ siteTitle }) => (
         </li>
         <li title={`Sự kiện và Hoạt Động - ${siteTitle}`}>
           <Link
-            to="/page-2"
+            to="/su-kien"
             className="navbar__link-item"
             activeClassName="navbar__link-item-active"
           >
@@ -94,7 +100,7 @@ const Header = ({ siteTitle }) => (
         </li>
         <li title={`Thư Viện Ảnh - ${siteTitle}`}>
           <Link
-            to="/page-2"
+            to="/thu-vien-anh"
             className="navbar__link-item"
             activeClassName="navbar__link-item-active"
           >
@@ -103,7 +109,7 @@ const Header = ({ siteTitle }) => (
         </li>
         <li title={`Liên hệ- ${siteTitle}`}>
           <Link
-            to="/"
+            to="/lien-he"
             className="navbar__link-item"
             activeClassName="navbar__link-item-active"
           >
